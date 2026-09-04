@@ -1,0 +1,16 @@
+﻿# Disable directory browsing
+Options -Indexes
+
+# Enable mod_rewrite (if needed)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+</IfModule>
+
+# Protect sensitive file types
+<FilesMatch "\.(sql|log|ini|cfg|htaccess)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Custom error pages
+ErrorDocument 404 /campus-sis/404.php

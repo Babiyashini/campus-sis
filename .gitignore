@@ -1,0 +1,30 @@
+﻿# XAMPP specific
+*.log
+*.pid
+*.lock
+
+# Database credentials
+config/database.php
+
+# Uploaded files
+assets/uploads/
+assets/uploads/*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.vscode/
+.idea/
+
+# Backup files
+*.sql
+*.zip
+*.tar.gz
+
+# Log files
+*.log
+
+# Compiled PHP files
+*.phar

@@ -1,0 +1,657 @@
+﻿/* ============================================
+   PROFESSIONAL STUDENT INFORMATION SYSTEM
+   American College of Higher Education
+   ============================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============================================
+   ROOT VARIABLES
+   ============================================ */
+:root {
+    --sidebar-width: 280px;
+    --sidebar-bg: #1a1a2e;
+    --sidebar-hover: #16213e;
+    --primary-color: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary-color: #7209b7;
+    --success-color: #06d6a0;
+    --danger-color: #ef476f;
+    --warning-color: #ffd166;
+    --info-color: #118ab2;
+    --light-bg: #f0f2f5;
+    --card-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    --border-radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--light-bg);
+    color: #1a1a2e;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   TYPOGRAPHY - LARGER FONTS
+   ============================================ */
+h1, .h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
+h2, .h2 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.01em; }
+h3, .h3 { font-size: 1.5rem; font-weight: 700; }
+h4, .h4 { font-size: 1.25rem; font-weight: 600; }
+h5, .h5 { font-size: 1.1rem; font-weight: 600; }
+h6, .h6 { font-size: 1rem; font-weight: 600; }
+
+p, .text-body { font-size: 1rem; line-height: 1.7; }
+small, .text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+
+/* ============================================
+   WRAPPER & LAYOUT
+   ============================================ */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+/* ============================================
+   SIDEBAR - PROFESSIONAL
+   ============================================ */
+.sidebar {
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    color: #fff;
+    transition: var(--transition);
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 4px 0 30px rgba(0,0,0,0.1);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* Sidebar Header */
+.sidebar .sidebar-header {
+    padding: 28px 24px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar .sidebar-header .logo-icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sidebar .sidebar-header h4 {
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin: 0;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.sidebar .sidebar-header .subtitle {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    font-weight: 400;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Sidebar Navigation */
+.sidebar .nav {
+    padding: 16px 12px;
+}
+
+.sidebar .nav-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.3);
+    padding: 12px 16px 8px;
+    font-weight: 700;
+}
+
+.sidebar .nav-item {
+    margin: 2px 0;
+}
+
+.sidebar .nav-link {
+    color: rgba(255,255,255,0.7);
+    padding: 14px 18px;
+    border-radius: 12px;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+}
+
+.sidebar .nav-link:hover {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.sidebar .nav-link.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+}
+
+.sidebar .nav-link i {
+    font-size: 1.2rem;
+    width: 28px;
+    text-align: center;
+    margin-right: 12px;
+}
+
+.sidebar .nav-link .badge {
+    margin-left: auto;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+/* Sidebar Footer */
+.sidebar .sidebar-footer {
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.sidebar .sidebar-footer .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar .sidebar-footer .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.sidebar .sidebar-footer .user-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.sidebar .sidebar-footer .user-role {
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.content {
+    width: calc(100% - var(--sidebar-width));
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    transition: var(--transition);
+    background: var(--light-bg);
+}
+
+/* ============================================
+   TOP NAVBAR
+   ============================================ */
+.content .top-navbar {
+    padding: 16px 32px;
+    background: #ffffff !important;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.top-navbar .breadcrumb {
+    margin: 0;
+    background: transparent;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+.top-navbar .breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.top-navbar .user-menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.top-navbar .user-menu .user-avatar-sm {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.top-navbar .user-menu .user-name-sm {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   CONTENT BODY
+   ============================================ */
+.content-body {
+    padding: 32px;
+}
+
+/* ============================================
+   STATISTICS CARDS
+   ============================================ */
+.stat-card {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.1);
+}
+
+.stat-card .stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.stat-card .stat-icon.primary { background: rgba(67, 97, 238, 0.12); color: var(--primary-color); }
+.stat-card .stat-icon.success { background: rgba(6, 214, 160, 0.12); color: var(--success-color); }
+.stat-card .stat-icon.info { background: rgba(17, 138, 178, 0.12); color: var(--info-color); }
+.stat-card .stat-icon.warning { background: rgba(255, 209, 102, 0.12); color: var(--warning-color); }
+
+.stat-card .stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.stat-card .stat-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.stat-card .stat-change {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 12px;
+    border-radius: 20px;
+}
+
+.stat-card .stat-change.up { background: rgba(6, 214, 160, 0.12); color: var(--success-color); }
+.stat-card .stat-change.down { background: rgba(239, 71, 111, 0.12); color: var(--danger-color); }
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    background: #ffffff;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+}
+
+.card .card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 20px 24px;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.card .card-body {
+    padding: 24px;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+.table {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.table thead th {
+    background: #f8fafc;
+    color: #1a1a2e;
+    font-weight: 700;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table tbody td {
+    padding: 14px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.table-hover tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    border-radius: 10px;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+    color: #fff;
+}
+
+.btn-success {
+    background: var(--success-color);
+    border: none;
+    color: #fff;
+}
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(6, 214, 160, 0.3);
+    color: #fff;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    border: none;
+    color: #fff;
+}
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 71, 111, 0.3);
+    color: #fff;
+}
+
+.btn-warning {
+    background: var(--warning-color);
+    border: none;
+    color: #1a1a2e;
+}
+.btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 209, 102, 0.3);
+}
+
+.btn-outline-secondary {
+    border: 2px solid #e5e7eb;
+    color: #6b7280;
+}
+.btn-outline-secondary:hover {
+    background: #f8fafc;
+    border-color: #d1d5db;
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+.badge {
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+.badge.bg-success { background: var(--success-color) !important; }
+.badge.bg-danger { background: var(--danger-color) !important; }
+.badge.bg-warning { background: var(--warning-color) !important; color: #1a1a2e; }
+.badge.bg-info { background: var(--info-color) !important; }
+.badge.bg-primary { background: var(--primary-color) !important; }
+
+/* ============================================
+   FORMS
+   ============================================ */
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #1a1a2e;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+/* ============================================
+   STUDENT PROFILE
+   ============================================ */
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 auto 16px;
+    box-shadow: 0 8px 30px rgba(67, 97, 238, 0.25);
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.profile-id {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 992px) {
+    .sidebar {
+        margin-left: calc(-1 * var(--sidebar-width));
+        width: var(--sidebar-width);
+        position: fixed;
+    }
+    .sidebar.active {
+        margin-left: 0;
+    }
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+    .content.active {
+        width: calc(100% - var(--sidebar-width));
+        margin-left: var(--sidebar-width);
+    }
+}
+
+@media (max-width: 768px) {
+    .content-body {
+        padding: 16px;
+    }
+    .stat-card .stat-number {
+        font-size: 1.6rem;
+    }
+    h1, .h1 { font-size: 1.6rem; }
+    h2, .h2 { font-size: 1.4rem; }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* ============================================
+   STUDENT INFORMATION SECTION
+   ============================================ */
+.student-info-section {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+}
+
+.student-info-section .info-row {
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.student-info-section .info-row:last-child {
+    border-bottom: none;
+}
+
+.student-info-section .info-label {
+    font-weight: 600;
+    width: 180px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.student-info-section .info-value {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #1a1a2e;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    .sidebar, .top-navbar, .no-print {
+        display: none !important;
+    }
+    .content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}
